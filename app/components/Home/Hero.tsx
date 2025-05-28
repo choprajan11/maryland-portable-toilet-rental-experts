@@ -13,6 +13,7 @@ import ReviewWidget from "../Widgets/ReviewWidget";
 import Navbar from "../Navbar";
 import ContactInfo from "@/components/Content/ContactInfo.json";
 import Link from "next/link";
+import PortaPottyCalculator from "../Widgets/Calculator";
 
 const Hero = () => {
   const cityData: any = content;
@@ -65,6 +66,7 @@ const Hero = () => {
           <WhyChoose data={homeData.whyChooseSection} />
           {/* Section 4 */}
           {/* Section 1 */}
+          <PortaPottyCalculator/>
           <div className="my-10 grid  grid-cols-1 gap-6 px-4 md:grid-cols-2 md:px-24">
             <div className="">
               <Image
