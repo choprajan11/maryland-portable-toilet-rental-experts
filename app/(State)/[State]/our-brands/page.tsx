@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   title: {
     absolute: contentData.metaTitle,
   },
-  description: contentData.metaDescription,
+  description: contentData.metaDescription?.split("[location]").join( ContactInfo.location)
+  ?.split("[phone]").join(ContactInfo.No),
   alternates: {
     canonical: `${ContactInfo.baseUrl}our-brands/`,
   },
@@ -21,10 +22,10 @@ const page = () => {
     <div>
       <NavbarState/>
       <Banner
-        h1={contentData.h1Banner}
+        h1={contentData.h1Banner.split("[location]").join( ContactInfo.location)?.split("[phone]").join(ContactInfo.No)}
         image={contentData.bannerImage}
         header=""
-        p1={contentData.metaDescription}
+        p1={contentData.metaDescription.split("[location]").join( ContactInfo.location)?.split("[phone]").join(ContactInfo.No)}
       />
 
       {/* Content 1 */}
