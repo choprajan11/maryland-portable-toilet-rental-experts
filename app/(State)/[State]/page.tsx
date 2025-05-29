@@ -12,6 +12,9 @@ import Affordable from "@/app/components/Home/Affordable";
 import ProcessWidget from "@/app/components/Widgets/ProcessWidget";
 import NavbarState from "@/app/components/State/NavbarState";
 import { headers } from "next/headers";
+import PortaPottyCalculator from "@/app/components/Widgets/Calculator";
+import Link from "next/link";
+import ZipAndNeighAccordian from "@/app/components/Home/ZipAndNeighAccordian";
 // import Service from "@/app/Components/Service";
 
 interface SubdomainPageProps {
@@ -411,6 +414,7 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
         ) : null}
         {/* Season Section */}
         <ProcessWidget />
+        <PortaPottyCalculator/>
         {/* Cta */}
         <div className="mt-14 md:mt-28">
           <HourCta />
@@ -478,6 +482,74 @@ export default function SubdomainPage({ params }: SubdomainPageProps) {
             <AreaWeServe slugs={slugs} />
           </div>
         )}
+        {/* Neighborhood */}
+      {ContentData?.neighbourhoods ? (
+        <div className="">
+          <div className="block border px-4 md:hidden">
+            <ZipAndNeighAccordian
+              ques={`Neighborhoods we serve in  ${ContentData?.name}`}
+              ans={ContentData?.neighbourhoods?.split("|")}
+              slug={ContentData?.slug}
+            />
+          </div>
+          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block ">
+            <div className="text-center text-3xl font-bold">
+              <p className="text-main">
+                Neighborhoods we serve in {ContentData?.name}
+              </p>
+            </div>
+            <div className="mx-10 mt-4 flex h-fit w-auto flex-wrap justify-center gap-4">
+              {ContentData?.neighbourhoods?.split("|").map((item: any) => (
+                <div className="" key={item}>
+                  <a
+                    target="_blank"
+                    href={`https://www.google.com/maps/search/?api=1&query=${item}, ${ContentData?.slug},`}
+                  >
+                    <p className="border bg-minor px-2 py-1 text-white duration-100 ease-in-out hover:text-main">
+                      {item}
+                    </p>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {/* Neighborhood */}
+      {/* Zip */}
+      {ContentData?.zipCodes ? (
+        <div className="">
+          <div className="block border px-4 md:hidden">
+            <ZipAndNeighAccordian
+              ques={` Zip Codes we serve in ${ContentData?.name}`}
+              ans={ContentData?.zipCodes?.split("|")}
+              slug={ContentData?.slug}
+            />
+          </div>
+          <div className="mt-28 hidden items-center justify-start md:mx-40 md:block  ">
+            <div className="text-center text-3xl font-bold">
+              <p className="text-main">
+                Zip&nbsp;Codes we serve in {ContentData?.name}
+              </p>
+            </div>
+            <div className="mx-10 mt-4 flex h-fit w-auto flex-wrap justify-center gap-4">
+              {ContentData?.zipCodes?.split("|").map((item: any) => (
+                <div className="" key={item}>
+                  <Link
+                    target="_blank"
+                    href={`https://www.google.com/maps/search/?api=1&query=${item}, ${ContentData?.slug},`}
+                  >
+                    <p className="border bg-minor px-2 py-1 text-white duration-100 ease-in-out hover:text-main">
+                      {item}
+                    </p>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {/* Zip */}
         {/* FAQ */}
         {ContentData?.faq ? <Faq value={State} /> : null}
         {/* FAQ */}

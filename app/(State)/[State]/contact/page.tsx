@@ -173,7 +173,7 @@ const page = () => {
         {/* Map */}
         <div className="w-full mt-10">
           <iframe
-            src={contentData.mapLink}
+            src={`https://maps.google.com/maps?q=${content[subdomain]?.slug}+USA&t=&z=7&ie=UTF8&iwloc=&output=embed`}
             height="350"
             className="border w-full rounded-lg mt-10"
             loading="lazy"

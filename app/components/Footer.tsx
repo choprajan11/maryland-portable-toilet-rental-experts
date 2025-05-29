@@ -8,19 +8,19 @@ const Footer = () => {
   return (
     <div className=" flex w-full items-center justify-center bg-[#eeecec]">
          <div className=" flex w-full  items-center justify-center overflow-hidden">
-           <div className=" mt-8 flex w-full flex-col  items-center justify-center md:min-w-[650px] ">
-             <div className="mt-8 flex w-fit flex-col justify-center gap-2 px-6  md:w-full  md:flex-row md:items-start md:justify-around md:px-20 ">
-               <div className="mt-4 flex   items-center justify-center text-2xl md:mt-0 md:w-52">
+           <div className=" md:mt-8 flex w-full flex-col  items-center justify-center md:min-w-[650px] ">
+             <div className="md:mt-8 flex w-fit flex-col justify-center gap-2 px-6  md:w-full  md:flex-row md:items-start md:justify-around md:px-20 ">
+               <div className="mt-4 flex h-32 md:h-auto items-center justify-center text-2xl  md:mt-0 md:w-52">
                  <Image
                    src={ContactInfo?.logoImage}
                    height={10000}
                    width={10000}
-                   className="w-full object-cover  "
+                   className="w-full object-cover "
                    alt={ContactInfo.logoImage.split("/").pop()?.split(".")[0] || "image"}
                    title={ContactInfo.logoImage.split("/").pop()?.split(".")[0] || "image"}
                  />
                </div>
-               <div className="mt-20  flex flex-col items-center   justify-center text-lg md:mt-0  md:w-80">
+               <div className="mt-10  flex flex-col items-center   justify-center text-lg md:mt-0  md:w-80">
                  <div className=" w-fit border-b-2 border-minor text-3xl font-semibold text-main">
                    Our Company
                  </div>
@@ -39,7 +39,7 @@ const Footer = () => {
                    </Link>
                  </div>
                </div>
-               <div className="mt-20  flex flex-col items-center   justify-center text-lg md:mt-0  md:w-[26rem]">
+               <div className="mt-10  flex flex-col items-center   justify-center text-lg md:mt-0  md:w-[26rem]">
                  <div className=" w-fit border-b-2 border-minor text-3xl font-semibold text-main">
                    Our Services
                  </div>
@@ -56,7 +56,7 @@ const Footer = () => {
                    )}
                  </div>
                </div>
-               <div className="flex flex-col items-center justify-center md:w-80">
+               <div className="mt-10 md:mt-0 flex flex-col items-center justify-center md:w-80">
                  <div className=" w-fit border-b-2 border-minor text-3xl font-semibold text-main">
                    REACH OUT TO US
                  </div>

@@ -45,8 +45,8 @@ const page = ({ params }: { params: { services: string } }) => {
       <Banner
         h1={serviceData.title.split("[location]").join(locationName)}
         header=""
-        p1={serviceData.description?.split("[location]").join(ContactInfo.location)
-            ?.split("[phone]").join(ContactInfo.No)}
+        p1={serviceData.description?.split("[location]").join(Data?.name || ContactInfo.location)
+    ?.split("[phone]").join(ContactInfo.No)}
       />
       <div className="mx-4 mt-6 print:hidden md:mx-10">
         {/* who */}
@@ -109,18 +109,36 @@ const page = ({ params }: { params: { services: string } }) => {
         <CtaSimple />
       </div>
       {serviceData.seoContent && (
-        <div className="bg-gray-100 text-black ">
-          <div className="mx-auto max-w-4xl px-4 py-12 text-center sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    {/* LEFT: Image */}
+    <div className="w-full">
+      <img
+        src="https://ik.imagekit.io/h7rza8886p/during-construction-of-a-house-portable-plastic-b-2025-03-27-03-45-26-utc.jpg?updatedAt=1748415477782" // replace with your actual image path
+        alt="Construction Portable Toilet"
+        className="w-full h-auto rounded-xl shadow-md object-cover"
+      />
+    </div>
+
+    {/* RIGHT: Text Content */}
+    <div>
+          
             <div
-              className="mt-4 "
+              className="mt-4 text-lg"
               dangerouslySetInnerHTML={{
                 __html: serviceData.seoContent
                   ?.split("[location]").join(ContactInfo.location)
             ?.split("[phone]").join(ContactInfo.No),
               }}
-            ></div>
-          </div>
+            >
+         
         </div>
+    </div>
+
+  </div>
+</div>
+
       )}
       {/* <TypeOfDumpster /> */}
     </div>
